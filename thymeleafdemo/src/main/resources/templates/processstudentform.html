@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Process Form (Hello World)</title>
+    </head>
+    <body>
+        <h3>Student Details Confirmation:</h3>
+        Name: <span th:text="${student.firstName} + ' ' + ${student.lastName}"></span>
+        <br /><br />
+        Country: <span th:text="${student.country}"></span>
+        <br /><br />
+        Programming: <span th:text="${student.favLang}"></span>
+        <br /><br />
+        Favourite OS:
+        <ul>
+            <li th:each="os : ${student.favOS}" th:text="${os}" />
+        </ul>
+    </body>
+</html>
