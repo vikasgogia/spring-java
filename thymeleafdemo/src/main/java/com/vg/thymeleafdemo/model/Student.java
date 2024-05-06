@@ -1,10 +1,20 @@
 package com.vg.thymeleafdemo.model;
 
+import com.vg.thymeleafdemo.validation.OnlyAlpha;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class Student {
 
-    private String firstName, lastName, country, favLang;
+    @NotNull
+    @Size(min =1, message = "is required")
+    @OnlyAlpha
+    private String firstName;
+    private String lastName;
+    private String country;
+    private String favLang;
     private List<String> favOS;
 
     public Student() {}

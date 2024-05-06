@@ -3,11 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <title>Student Form (Hello World)</title>
+        <style>
+            .error{
+                color: red;
+            }
+        </style>
     </head>
     <body>
         <h3>Student Registration Form</h3>
         <form th:action="@{/process-student-form}" th:object="${student}" method="POST">
             First Name: <input type="text" th:field="*{firstName}" />
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error"/>
             <br/><br/>
 
             Last Name: <input type="text" th:field="*{lastName}" />
